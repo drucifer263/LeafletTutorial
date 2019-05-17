@@ -1,0 +1,673 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap Reference With JS Reference-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- CSS pages-->
+    <!-- Algolia -->
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.14.0"></script>
+    <!--CurrencyFormatter-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/currencyformatter.js/2.2.0/currencyFormatter.js" integrity="sha256-lCXqGxPAQbTux1a9+jYZBXKJwb4amDg9c2MbtVk0Sec=" crossorigin="anonymous"></script>
+    <!-- Leaflet CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+            integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+            crossorigin=""></script>
+    <!-- My CSS and JS -->
+    <link rel="stylesheet" type="text/css" href="myStyleSheet.css" />
+    <script src="myJavaScript.js"></script>
+    <link rel="shortcut icon" href="images/Tindex.ico">
+</head>
+<body>
+    <nav class="navBar">
+        <div id="nav-btn">
+            <img id="nav-icon" src="images/menu.png" alt="Menu Icon" />
+        </div>
+        <ul class="navList show">
+            <li><a class="highlight" href="http://cis-iis2.temple.edu/Fall2018/CIS3344_tua07182/">Home Page</a></li>
+            <li><a href="#top">Top</a></li>
+            <li><a href="#introBox">Intro</a></li>
+            <li><a href="#setupBox">Setup</a></li>
+            <li><a href="#example1">Simple Example</a></li>
+            <li><a href="#example2">Example 2</a></li>
+            <li><a href="#example3">Example 3</a></li>
+            <li><a href="#example4">Extras</a></li>
+            <li><a href="#searchBox">Search</a></li>
+            <li><a href="#mapBox">Final</a></li>
+            <li><a href="#refBox">References</a></li>
+            <li><a href="#resBox">Resources</a></li>
+            <li><a href="#footer">Footer</a></li>
+        </ul>
+    </nav>
+    <div class="clear"></div>
+    <header>
+        <h1 id="top">Leaflet Tutorial</h1>
+    </header>
+
+    <main>
+        <!--Intro Box-->
+        <div id="introBox" class="box">
+            <div class="card">
+                <div class="card-header">
+                    <a id="mapBoxHeader" class="card-link" data-toggle="collapse" href="#intro">
+                        Introduction
+                    </a>
+                </div>
+                <!--Intro Content-->
+                <div id="intro" class="container-fluid collapse show " data-parent="#introBox">
+                    <div class="card-body">
+                        <h3 id="top">What is Leaflet.js?</h3>
+                        <p>
+                            Leaflet is a light weight open sources java script library that allows
+                            you to quickly creat comprehensive and interactive maps.
+                            It takes all the trouble out of trying to intergrate and create
+                            that nice or custom map within your application. Leaflet is versitile and
+                            developed for more moblie friendly interactive maps. It weighs only about
+                            38kb of javascript and has many robust features.
+                        </p>
+                        <p>
+                            Leaflet is the leading open-source JS library for interactive mobile focused maps.
+                            It is an easy to use library with extensive documentation and can be extened with a number of plugins and add ons.
+                            Leaflet takes the pain out 				of making custom maps and markers, and streamlines many complex actions/code
+                            into simple and easy to implement functions/actions. Leaflet is highly compatible with most, if not all modern browsers
+                            and works well with a number of different devices.
+                        </p>
+                        <p>Summary:</p>
+                        <ul>
+                            <li>Easy to understand and use</li>
+                            <li>Customizable</li>
+                            <li>Lightweigtht</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Setup Box-->
+        <div id="setupBox" class="box">
+            <div class="card">
+                <div class="card-header">
+                    <a id="mapBoxHeader" class="card-link" data-toggle="collapse" href="#setup">
+                        Setup
+                    </a>
+                </div>
+                <!--Setup Content-->
+                <div id="setup" class="container-fluid collapse show " data-parent="#setupBox">
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <h5>Accounts</h5>
+                                <p>
+                                    In order to utilize Leaflet.js you will have to make an account with a web services provider like Google,
+                                    MapBox, or MapQuest. Registering an account will provide you with an API key, appid, and documentation that you
+                                    will need to create and style your own maps. It is a simple process and most are free or have a pay threshold, so many
+                                    requests per day/month/week etc. Once you have made an account you will have to go into your dashboard and aquire
+                                    your api key. Be mindful that some providers will have you register you application and give it an id along with
+                                    utilizing a api key.
+                                </p>
+                            </li>
+                            <li>
+                                <h5>API and appid</h5>
+                                <p>
+                                    The api key is a unique identifyer that allows your application to access the Map api's resources. The key, or token
+                                    depending on the provider, is the only way that you can use said service. Most API's are restful which means that you will be
+                                    utilizing a series of urls to access different aspects of a providers web service. For this example once you have an api key/token
+                                    all you need to do is place it in your map attributes in your code and that is it.Note: Some providers will have you create or register your individual app and give it an id.
+                                </p>
+                            </li>
+                            <li>
+                                <h5>IDE</h5>
+                                <p>
+                                    First you are going to want to pick an IDE to develop the web application in.
+                                    An IDE is an Intergrated Development Environment. For this demo I have picked
+                                    Visuial Studio 2017: <a href="https://visualstudio.microsoft.com/downloads/">Get VS Here!</a>
+                                    All you need to do is make a new Project. Then go to the sub
+                                    section web and pick web application. Next you pick an empty form and VS should
+                                    generate the project. Then you want to right click add item on the project icon.
+                                    When the dialog box appears you choose html file. Now do this to add a CSS and JS file
+                                    if you want.
+                                </p>
+                            </li>
+
+                            <li>
+                                <h5>Software:</h5>
+                                <p>
+                                    You can use leaflet one of two ways. Either through down loading the package into your IDE or through a CDN.
+                                    If you use a CDN all you need to do is include these lines of code within the header of your html page. The
+                                    first line is the Leaflet CSS:
+                                </p>
+                                <p>
+                                    <code>
+                                        <--CSS-->
+                                            < link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+                                            integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+                                            crossorigin=""/>
+                                    </code>
+                                </p>
+                                <p> The Second line is the Leaflet JavaScript file and it must follow the CSS file:</p>
+                                <p>
+                                    <code>
+                                        <--JS-->
+                                            < script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+                                            integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+                                            crossorigin=""></ script>
+                                    </code>
+                                </p>
+                                <p>For the npm package you will have to download it from their <a href="https://github.com/Leaflet/Leaflet">Github</a> account.</p>
+                            </li>
+                            <li>
+                                <h5>More</h5>
+                            </li>
+                        </ul>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Map Box example 1 simple-->
+        <div id="example1" class="box">
+            <div class="card">
+                <div class="card-header">
+                    <a id="mapBoxHeader" class="card-link" data-toggle="collapse" href="#divExample1">
+                        Simple 	Example 1: layers and markers
+                    </a>
+                </div>
+                <!--Map Content-->
+                <div id="divExample1" class="container-fluid collapse show " data-parent="#example1">
+                    <div class="card-body">
+                        <p>For this first example we will get a tile set and place a marker on the map.</p>
+                        <p>
+                            After you have added the CSS and JS files from above into your header section on your
+                            html page. You need to place a div or section element into the main body of your page,like
+                            so:
+                        </p>
+                        <p><code> < div id="map1">< /div></code></p>
+                        <p>Then you will want to give it some styling on your CSS page. I just gave it a height in pixels.</p>
+                        <p><code>#map1{height: 300px;}</code></p>
+                        <p>
+                            Next you will have to set the location and and zoom level of the map. To do this you have to pass
+                            setViews a set of coordinates and a integer zoom level and place that into a variable.
+                        </p>
+                        <p><code> var myMap = L.map('map1').setView([39.9526, -75.1652], 13);</code></p>
+                        <p>
+                            Then you will have to add a tile layer to your map. In order to do this you will have to pick
+                            a map API like MapBox or Google Maps API like the ones in the <a href="#resBox">Resources</a> section.
+                        </p>
+                        <p>
+                            Now you will have to add the tile layer using <code>L.tileLayer();</code>. You will need the URL template,
+                            an attribution text,app id, and the max zoom level for that layer. For MapBox the code looks like this:
+                        </p>
+                        <p>
+                            <code>
+                                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {<br />
+                                attribution: 'Map data &copy; < a href="https://www.openstreetmap.org/" >OpenStreetMap</ a> contributors, < a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a >, Imagery © < a href="https://www.mapbox.com/">Mapbox</ a>',<br />
+                                maxZoom: 18,<br />
+                                id: 'mapbox.streets',<br />
+                                accessToken: 'access code/ API key goes here'<br />
+                                }).addTo(myMap);
+                            </code>
+                        </p>
+                        <p>
+                            The id is the type of map of tile set you may want to use. Here is a list for MapBox: <a href="https://www.mapbox.com/api-documentation/#styles">Map Styles</a>.
+                            The map id will generally be one of these but in the format of mapbox.styleyouwanttouse. For example if I wanted to use
+                            the satellite tile set I would put <code>mapbox.satellite</code> in the section of the id.
+                        </p>
+                        <p>The last line of code <code>.addTo(myMap); </code> adds the tile set to the map variable from earlier. It should look something like this: </p>
+                        <div id="map1_2"></div>
+                        <p>
+                            Finally you will want to add a marker to the map. To do this you will have to pick a set of coordinates on the map, lat and long, as to where
+                            you want to place the marker. First make a var and then have it equal to the <code>L.marker()</code>. Once again you will have to
+                            add the marker to the tile set using thefucntion with the map variable <code>.addTo(yourmapvariable);</code>. It should look something like
+                            this:
+                        </p>
+                        <p><code>var firstMarker = L.marker([39.952515, -75.163544]).addTo(myMap);</code></p>
+                        <p> Last but not least your map will have a custom marker and should be similar to this:</p>
+                        <div id="map1_3"></div>
+                        <br />
+                        <br />
+                        <p>My finished map with marker</p>
+                        <div id="map1"></div>
+                        <p><code></code></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Map Box example 2 simple-->
+        <div id="example2" class="box">
+            <div class="card">
+                <div class="card-header">
+                    <a id="mapBoxHeader" class="card-link" data-toggle="collapse" href="#divExample2">
+                        Simple 	Example 2 custom markers with popups
+                    </a>
+                </div>
+                <!--Map Content-->
+                <div id="divExample2" class="container-fluid collapse show" data-parent="#example2">
+                    <div class="card-body">
+                        <p>
+                            Building off the previous example I will now show you how to add a popup to any marker or element that you place on the map.
+                            It is fairly easy process due to Leaflet.js. All you need to do is take the <code>var firstMarker</code> from the previous example and
+                            utilize the <code>.bindPopup("Your message here")</code> with the <code>.openPopup();</code> method. It will look something like this:
+                        </p>
+                        <p><code>firstMarker.bindPopup("My very own marker with a popup").openPopup();</code></p>
+                        <div id="map2_2"></div>
+                        <p>I also changed the id to <code>mapbox.light</code> in this example.</p>
+                        <br>
+                        <br />
+                        <p>My finished custom marker with a popup.</p>
+                        <div id="map2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Map Box example 3 -->
+        <div id="example3" class="box">
+            <div class="card">
+                <div class="card-header">
+                    <a id="mapBoxHeader" class="card-link" data-toggle="collapse" href="#divExample3">
+                        Example 3 Custom images and shapes
+                    </a>
+                </div>
+                <!--Map Content-->
+                <div id="divExample3" class="container-fluid collapse show" data-parent="#example3">
+                    <div class="card-body">
+                        <p>
+                            There are different classes to create various objects like circles, rectangles,lines and even how to
+                            use and customize your very own markers. Here is an example of using the rectangle class.
+                        </p>
+                        <p>
+                            <code>
+                                var bounds = [[some map latitude, some map longitude], [another map latitude, another map longitude]];
+                                L.rectangle(bounds, {color: "enter hex color here", weight: numerical value like 1}).addTo(yourMap);
+                                yourMap.fitBounds(bounds);
+                            </code>
+                        </p>
+                        <p>
+                            The <code>var bounds</code> just needs two points on the map with the lat and long. Then you use the
+                            <code>L.rectangle</code> class to add the bounds to the shape, add a hex color and then the numerical
+                            of the shape. Finally you use the map map variable you have been using and force the map to zoom in on the
+                            shape.
+                        </p>
+                        <div id="map3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Map Box example 4 -->
+        <div id="example4" class="box">
+            <div class="card">
+                <div class="card-header">
+                    <a id="mapBoxHeader" class="card-link" data-toggle="collapse" href="#divExample4">
+                        Example 4 Extras
+                    </a>
+                </div>
+                <!--Map Content-->
+                <div id="divExample4" class="container-fluid collapse show" data-parent="#example4">
+                    <div class="card-body">
+                        <p>
+                            You can do some pretty cool stuff like adding an event handeler that will tell you the latitude and longitude
+                            when you click on the map.
+                        </p>
+                        <p>
+                            <code>
+                                var yourLocator = L.popup();<br />
+                                function yourFunction(e) { yourLocator.setLatLng(e.latlng).setContent("coordinates: " + e.latlng.toString())
+                                .openOn(nameofyourmap);}<br />
+                                nameofyourmap.on('click', onMapClick);
+                            </code>
+                        </p>
+                        <p><code>e</code> is an event and every object has its own set.</p>
+                        <div id="map4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Search Box-->
+        <div id="searchBox" class="box">
+            <div class="card">
+                <div class="card-header">
+                    <a id="searchBoxHeader" class="card-link" data-toggle="collapse" href="#search">
+                        Search Box
+                    </a>
+                </div>
+                <!--Search Content-->
+                <div id="search" class="container-fluid collapse" data-parent="#searchBox">
+                    <div class="card-body">
+                        <label>You can Search by city here.</label><br />
+                        <input type="search" id="citySearch" class="form-control d-inline" placeholder="Search by City" />
+                        <button id="citySearchBtn" type="button" class="btn btn-success d-inline">Search</button><!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Map Box-->
+        <div id="mapBox" class="box">
+            <div class="card">
+                <div class="card-header">
+                    <a id="mapBoxHeader" class="card-link" data-toggle="collapse" href="#map">
+                        Tourist Map
+                    </a>
+                </div>
+                <!--Map Content-->
+                <div id="map" class="container-fluid collapse show" data-parent="#mapBox">
+                    <div class="card-body">
+                        <label>Here is your interactive map.</label><br />
+                        <div id="finalMap"></div>
+                        <p>
+                            <h5>Summary</h5>
+                            <p>Leaflet.js is a javascript framework library that allows you to quickly and easily build
+                                fun and interactive maps. It uses any Map API and has very easy to follow documentation.
+                                It takes the time and frustration from making your own mobile friendly maps into a bearable and
+                                down right pleasent experience. There is even more to the framework that I did not get a chance to 
+                                touch such as Geocoding and GeoJSON but that could be for a later time/tutorial.</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Refrences Box-->
+        <div id="refBox" class="box">
+            <div class="card">
+                <div class="card-header">
+                    <a id="mapBoxHeader" class="card-link" data-toggle="collapse" href="#ref">
+                        References
+                    </a>
+                </div>
+                <!--Ref Content-->
+                <div id="ref" class="container-fluid collapse show " data-parent="#refBox">
+                    <div class="card-body">
+
+                        <p>List of references and things I used to make this web app.</p>
+                        <p>
+                            <ul>
+                                <li>Leaflet Homepage: <a href="https://leafletjs.com/">Leaflet</a></li>
+                                <li>Developer of Leaflet: <a href="https://agafonkin.com/">Vladimir Agafonkin</a></li>
+                                <li>Map Software used: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a></li>
+                                <li>Map API and Tileset used: <a href="https://www.mapbox.com">MapBox</a></li>
+                                <li>Leaflet Github page: <a href="https://github.com/Leaflet/Leaflet">Github</a></li>
+                                <li>Bootstrap 4: <a href="https://www.w3schools.com/bootstrap4/default.asp">BootStrap</a></li>
+                                <li>If I have time: Goople Maps API: <a href="https://developers.google.com/maps/documentation">GMP</a></li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Resources and tools Box-->
+        <div id="resBox" class="box">
+            <div class="card">
+                <div class="card-header">
+                    <a id="mapBoxHeader" class="card-link" data-toggle="collapse" href="#res">
+                        Resources and Tools
+                    </a>
+                </div>
+                <!--Res Content-->
+                <div id="res" class="container-fluid collapse show " data-parent="#resBox">
+                    <div class="card-body">
+                        <p>Extra resources and tools</p>
+                        <ul>
+                            <li>Mapbox API documentation: <a href="https://www.mapbox.com/api-documentation/#introduction">MapBox API</a></li>
+                            <li>More About OpenStreetMap: <a href="https://wiki.openstreetmap.org/wiki/Main_Page">OpenStreetMap Project</a></li>
+                            <li>SearchBox API: <a href="https://community.algolia.com/places">Algolia</a></li>
+                            <li>JS framework used to format currency: <a href="https://osrec.github.io/currencyFormatter.js">CurrencyFormatter.js</a></li>
+                            <li>Stamen (another map API and tileset): <a href="http://maps.stamen.com/#terrain/12/37.7706/-122.3782">Stamen</a></li>
+                            <li>Thunderforest (another map API and tileset): <a href="https://www.thunderforest.com/terms">Thunderforest</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--Collapsible footer info-->
+    <footer id="footer">
+        <div class="card">
+            <div class="card-header text-center">
+                <a id="footerHeader" class="card-link" data-toggle="collapse" href="#collapseOne">
+                    Footnote
+                </a>
+            </div>
+            <div id="collapseOne" class="collapse text-center show" data-parent="#footer">
+                <div class="card-body">
+                    <p> &copy; Drew Watson, <a href="mailto:dru.w@temple.edu">dru.w@temple.edu </a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            var locationSearch;
+            var cX;
+            var cY;
+
+            //Example  map 1
+            var myMap = L.map('map1').setView([39.9526, -75.1652], 13);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox.streets',
+                accessToken: 'pk.eyJ1IjoiZHJ1Y2lmZXIiLCJhIjoiY2pvd2h3cW1hMXh4NTNycm5ma2hoa2tvdiJ9.SNkfNJLTyz9oo__Pd0CQZg'
+            }).addTo(myMap);
+
+            var firstMarker = L.marker([39.951107, -75.181007]).addTo(myMap);
+            //firstMarker.bindPopup("This is how you place a marker!").openPopup();
+
+            //Example  map 1-2
+            var myMap1_2 = L.map('map1_2').setView([39.9526, -75.1652], 17);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 25,
+                id: 'mapbox.satellite',
+                accessToken: 'pk.eyJ1IjoiZHJ1Y2lmZXIiLCJhIjoiY2pvd2h3cW1hMXh4NTNycm5ma2hoa2tvdiJ9.SNkfNJLTyz9oo__Pd0CQZg'
+            }).addTo(myMap1_2);
+
+            //Example  map 1-3
+            var myMap1_3 = L.map('map1_3').setView([39.9526, -75.1652], 17);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 25,
+                id: 'mapbox.satellite',
+                accessToken: 'pk.eyJ1IjoiZHJ1Y2lmZXIiLCJhIjoiY2pvd2h3cW1hMXh4NTNycm5ma2hoa2tvdiJ9.SNkfNJLTyz9oo__Pd0CQZg'
+            }).addTo(myMap1_3);
+
+            var firstMarker = L.marker([39.952515, -75.163544]).addTo(myMap1_3);
+
+            //Example map 2
+            var myMap2 = L.map('map2').setView([39.9526, -75.1652], 9);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 20,
+                id: 'mapbox.outdoors',
+                accessToken: 'pk.eyJ1IjoiZHJ1Y2lmZXIiLCJhIjoiY2pvd2h3cW1hMXh4NTNycm5ma2hoa2tvdiJ9.SNkfNJLTyz9oo__Pd0CQZg'
+            }).addTo(myMap2);
+
+            var marker = L.marker([39.951107, -75.181007]).addTo(myMap2);
+            marker.bindPopup("This is how you place a marker with a popup!").openPopup();
+
+            //Example  map 2-2
+            var myMap2_2 = L.map('map2_2').setView([39.9526, -75.1652], 16);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 20,
+                id: 'mapbox.light',
+                accessToken: 'pk.eyJ1IjoiZHJ1Y2lmZXIiLCJhIjoiY2pvd2h3cW1hMXh4NTNycm5ma2hoa2tvdiJ9.SNkfNJLTyz9oo__Pd0CQZg'
+            }).addTo(myMap2_2);
+
+            var firstMarker = L.marker([39.952515, -75.163544]).addTo(myMap2_2);
+            firstMarker.bindPopup("My very own marker with a popup").openPopup();
+            //Example map 3
+            var myMap3 = L.map('map3').setView([39.9526, -75.1652], 9);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 20,
+                id: 'mapbox.dark',
+                accessToken: 'pk.eyJ1IjoiZHJ1Y2lmZXIiLCJhIjoiY2pvd2h3cW1hMXh4NTNycm5ma2hoa2tvdiJ9.SNkfNJLTyz9oo__Pd0CQZg'
+            }).addTo(myMap3);
+
+            var bounds = [[39.98116, -75.160014], [39.979384, -75.157353]];
+            L.rectangle(bounds, { color: "#c6e2ff", weight: 1 }).addTo(myMap3);
+            myMap3.fitBounds(bounds);
+
+            //Example map 4
+            var myMap4 = L.map('map4').setView([39.979735, -75.158468], 16);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 30,
+                id: 'mapbox.satellite',
+                //id: 'mapbox.streets',
+                accessToken: 'pk.eyJ1IjoiZHJ1Y2lmZXIiLCJhIjoiY2pvd2h3cW1hMXh4NTNycm5ma2hoa2tvdiJ9.SNkfNJLTyz9oo__Pd0CQZg'
+            }).addTo(myMap4);
+
+            // var marker = L.marker([39.951107, -75.181007]).addTo(myMap4);
+            var locator = L.popup();
+            function onMapClick(e) {
+                locator.setLatLng(e.latlng).setContent("coordinates: " + e.latlng.toString()).openOn(myMap4);
+            }
+
+            myMap4.on('click', onMapClick);
+
+            //Map example final
+            var bathrooms = L.layerGroup();
+            var cityBuildings = L.layerGroup();
+            var museums = L.layerGroup();
+            var colleges = L.layerGroup();
+            var parks = L.layerGroup();
+            var bikeRental = L.layerGroup();
+            var resturants = L.layerGroup();
+            var amusements = L.layerGroup();
+            var beware = L.layerGroup();
+
+            //Bathrooms
+            L.marker([39.951107, -75.181007]).bindPopup("There is a public bathroom here!").addTo(bathrooms);
+            L.marker([39.942703, -75.157031]).bindPopup("There is a public bathroom here!").addTo(bathrooms);
+            L.marker([39.942703, -75.157031]).bindPopup("There is a public bathroom here!").addTo(bathrooms);
+            L.marker([39.963321, -75.174586]).bindPopup("There is a public bathroom here!").addTo(bathrooms);
+            L.marker([39.953559, -75.164493]).bindPopup("There is a public bathroom here: Underground Concourse").addTo(bathrooms);
+            L.marker([39.953894, -75.167545]).bindPopup("There is a public bathroom here: Suburban Station!").addTo(bathrooms);
+            
+            
+            //City buildings
+            L.marker([39.952446, -75.163511]).bindPopup("City Hall").addTo(cityBuildings);
+            L.marker([39.953996, -75.164388]).bindPopup("Municipal Services Building").addTo(cityBuildings);
+
+            //Museums
+            L.marker([39.965324, -75.180699]).bindPopup("Art Museum").addTo(museums);
+            L.marker([39.945993, -75.140959]).bindPopup("Seaport Museum").addTo(museums);
+            
+            //Parks
+            L.marker([39.966191, -75.12861]).bindPopup("Penn Treaty Park").addTo(parks);
+            L.marker([39.953203, -75.139457]).bindPopup("Race Street Pier").addTo(parks);
+            L.marker([39.951148, -75.149544]).bindPopup("Independence National Historic Park").addTo(parks);
+            L.marker([39.961528, -75.169063]).bindPopup("Matthais Baldwin Park").addTo(parks);
+            L.marker([39.961443, -75.187865]).bindPopup("Drexel Park").addTo(parks);
+            L.marker([39.902013, -75.182748]).bindPopup("Roosevelt Park").addTo(parks);
+            
+
+            //Rideshare
+            L.marker([39.960604, -75.141302]).bindPopup("Rent a bike here").addTo(bikeRental);
+            L.marker([39.952382, -75.139863]).bindPopup("Rent a bike here").addTo(bikeRental);
+            L.marker([39.962983, -75.166113]).bindPopup("Rent a bike here").addTo(bikeRental);
+            
+            //Colleges
+            L.marker([39.979861, -75.158876]).bindPopup("Temple University").addTo(colleges);
+            L.marker([39.95902, -75.193412]).bindPopup("Drexel University").addTo(colleges);
+            L.marker([39.956652, -75.196202]).bindPopup("Penn University").addTo(colleges);
+            L.marker([39.946654, -75.206845]).bindPopup("University of the Sciences in Philadelphia").addTo(colleges);
+            L.marker([39.947964, -75.122063]).bindPopup("Rutgers University: Camden").addTo(colleges);
+            
+            //Food
+            L.marker([39.955172, -75.19853]).bindPopup("Koreanas, good ass korean food").addTo(resturants);
+            L.marker([39.952716, -75.171743]).bindPopup("Koreanas 2, also good ass korean food").addTo(resturants);
+            L.marker([39.936324, -75.158399]).bindPopup("La Primas, Great Spanish food").addTo(resturants);
+            L.marker([39.955292, -75.152889]).bindPopup("China Town").addTo(resturants);
+            
+
+            //Amusements/Tourist Traps
+            L.marker([39.968365, -75.172773]).bindPopup("Eastern State Penitentiary").addTo(amusements);
+            L.marker([39.956248, -75.138625]).bindPopup("Dave & Buster's").addTo(amusements);
+            L.marker([39.905941, -75.166418]).bindPopup("Citizens Bank Park").addTo(amusements);
+
+            //Beware
+            L.marker([39.944667, -75.119489]).bindPopup("It can get kinda crazy out in these streets").addTo(beware);
+
+         
+            var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZHJ1Y2lmZXIiLCJhIjoiY2pvd2h3cW1hMXh4NTNycm5ma2hoa2tvdiJ9.SNkfNJLTyz9oo__Pd0CQZg';
+
+            var mapD = L.tileLayer(mbUrl, { id: 'mapbox.streets', attribution: mbAttr }),
+                outdoors = L.tileLayer(mbUrl, { id: 'mapbox.outdoors', attribution: mbAttr }),
+                dark = L.tileLayer(mbUrl, { id: 'mapbox.dark', attribution: mbAttr }),
+                sat = L.tileLayer(mbUrl, { id: 'mapbox.satellite', attribution: mbAttr }),
+                grayscale = L.tileLayer(mbUrl, { id: 'mapbox.light', attribution: mbAttr });
+
+            var newMap = L.map('finalMap', {
+                center: [39.951107, -75.181007],
+                zoom: 14,
+                layers: [mapD]
+            });
+
+            var baseLayers = {
+                "Default": mapD,
+                "Grayscale": grayscale,
+                "Forest": outdoors,
+                "Dark": dark,
+                "Satellite": sat
+
+            };
+
+            var bathroomOverlays = {
+                "Bathrooms": bathrooms,
+                "City Buildings": cityBuildings,
+                "Museums": museums,
+                "Colleges": colleges,
+                "Parks": parks,
+                "Bike Rentals": bikeRental,
+                "Resturants": resturants,
+                "Amusements/Tourist Traps": amusements,
+                "Becareful": beware
+            };
+
+            var cityBuildingsOverlays = {
+                
+            };
+
+            L.control.layers(baseLayers, bathroomOverlays).addTo(newMap);
+
+            //Algolia Search bar with app and api keys
+            var placesAutocomplete = places({
+                appId: 'plEYIFE9YUDF',
+                apiKey: '2987e1642c706e9271d60f44c1f3bafa',
+                container: document.querySelector('#citySearch')
+            });
+
+            $("#citySearchBtn").click(function () {
+                var location = $('#citySearch').val();
+                alert(location);
+
+
+
+            });//end of submit question
+            // });
+
+        });// end of ready
+    </script>
+</body>
+</html>
